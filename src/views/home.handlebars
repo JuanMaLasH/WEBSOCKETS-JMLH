@@ -1,0 +1,11 @@
+<h1>Home de Productos</h1>
+
+<div>
+    {{#each productos}}
+        <div class="card">
+            <p> <strong>Producto:</strong> {{this.title}} </p>
+            <p> <strong>Descripción:</strong> {{this.description}} </p>
+            <p> <strong>Precio:</strong> ${{this.price}} </p>
+        </div>
+    {{/each}}
+</div>
