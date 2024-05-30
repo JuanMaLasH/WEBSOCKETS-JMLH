@@ -90,7 +90,7 @@ export default class ProductManager {
 [
 {
     "title": "Disco Rígido WD 2TB BLUE 256MB SATA 6.0GB/s",
-    "description": "Características: Tipo de conexión: SATA, Consumo: 5w y Tipo de disco: Mecánico",
+    "description": "Tipo de conexión: SATA, Consumo: 5w y Tipo de disco: Mecánico",
     "code": "WD20EZBX-00AYRA0",
     "price": 73840,
     "status": true,
@@ -100,7 +100,7 @@ export default class ProductManager {
 },
 {
     "title": "Disco Sólido SSD WD 480GB GREEN 545MB/s SATA",
-    "description": "Características: Tipo de conexión: SATA, Consumo: 3w y Tipo de Disco: Sólido",
+    "description": "Tipo de conexión: SATA, Consumo: 3w y Tipo de Disco: Sólido",
     "code": "WDS480G2G0A",
     "price": 42600,
     "status": true,
@@ -110,7 +110,7 @@ export default class ProductManager {
 },
 {
     "title": "Fuente Deepcool 500W DA500 80 Plus Bronze",
-    "description": "Características: Watts Nominal: 500w y Watts Reales: 500w",
+    "description": "Watts Nominal: 500w y Watts Reales: 500w",
     "code": "4718009157231",
     "price": 67900,
     "status": true, 
@@ -120,7 +120,7 @@ export default class ProductManager {
 },
 {
     "title": "Fuente Deepcool 600W DA600 80 Plus Bronze",
-    "description": "Características: Watts Nominal: 600w y Watts Reales: 600w",
+    "description": "Watts Nominal: 600w y Watts Reales: 600w",
     "code": "4718009157248",
     "price": 77500,
     "status": true, 
@@ -130,7 +130,7 @@ export default class ProductManager {
 },
 {
     "title": "Memoria Team DDR4 8GB 3200MHz T-Force Vulcan Z",
-    "description": "Características: Latencia: 16 cl y Voltaje: 1.35v",
+    "description": "Latencia: 16 cl y Voltaje: 1.35v",
     "code": "TLZGD48G3200HC16F01",
     "price": 27900,
     "status": true, 
@@ -140,7 +140,7 @@ export default class ProductManager {
 },
 {
     "title": "Memoria Corsair DDR4 16GB 3200MHz Vengeance RGB RS Black",
-    "description": "Características: Latencia: 16cl y Voltaje: 1.20 v",
+    "description": "Latencia: 16cl y Voltaje: 1.20 v",
     "code": "CMG16GX4M1E3200C16",
     "price": 56990,
     "status": true, 
@@ -170,7 +170,7 @@ export default class ProductManager {
 },
 {
     "title": "Procesador AMD Ryzen 5 4500 + Wraith Stealth Cooler AM4",
-    "description": "Características: Núcleos:6",
+    "description": "Núcleos:6",
     "code": "100-100000644BOX",
     "price": 118450,
     "status": true,
@@ -180,7 +180,7 @@ export default class ProductManager {
 },
 {
     "title": "Procesador AMD Ryzen 5 4600G 3.7GHz + Wraith Stealth Cooler AM4",
-    "description": "Características: Núcleos: 6",
+    "description": "Núcleos: 6",
     "code": "100-100000031SBX",
     "price": 154500,
     "status": true,

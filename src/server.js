@@ -3,12 +3,14 @@ import handlebars from "express-handlebars";
 import productsRouter from "./routes/product.router.js";
 import cartsRouter from "./routes/cart.router.js";
 import viewsRouter from "./routes/view.router.js";
-import morgan from 'morgan';
-import { __dirname } from './utils.js';
-import { Server } from 'socket.io'
-
-import ProductManager from "./manager/product.manager.js";
-const productManager = new ProductManager(`${__dirname}/data/products.json`);
+import morgan from "morgan";
+import { __dirname } from "./utils.js";
+import { Server } from "socket.io"; 
+import { initMongoDB } from "./dao/mongo/connection.js";
+import messagesManager from "./dao/mongo/managers/messagesManager.js";
+import "dotenv/config";
+import ProductManager from "./dao/filesystem/managers/products.managers.js";
+const productManager = new ProductManager(`${__dirname}/dao/filesystem/data/products.json`);
 
 const app = express();
 
@@ -26,6 +28,8 @@ app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
 
+if (process.env.PERSISTENCE === "MONGO") initMongoDB(); 
+
 const PORT = 8080;
 
 const httpServer = app.listen(PORT, () => {
@@ -33,6 +37,8 @@ const httpServer = app.listen(PORT, () => {
 });
 
 const socketServer = new Server(httpServer);
+
+const messageServices = new messagesManager();
 
 socketServer.on("connection", async (socket) => {
     console.log("Un cliente conectado");
@@ -49,9 +55,21 @@ socketServer.on("connection", async (socket) => {
         socket.emit("productos", await productManager.getProducts());
     })
 
-})
-
-
-// const PORT = 8080;
-
-// app.listen(PORT, () => console.log(`Server ok on port ${PORT}`));
+    socket.on("disconnect", () => {
+        console.log("Cliente desconectado");
+      });
+      socket.on("newUser", (usuario) => {
+        console.log("usuario", usuario);
+        socket.broadcast.emit("broadcast", usuario);
+      });
+    
+      socket.on("disconnect", () => {
+        console.log(`Usuario con ID : ${socket.id} esta desconectado `);
+      });
+    
+      socket.on("message", async (info) => {
+        console.log(info);
+        await messageServices.createMessage(info);
+        socketServer.emit("chat", await messageServices.getMessages());
+      });
+});

@@ -1,9 +1,9 @@
-import { __dirname } from "../utils.js";
+import { __dirname } from "../../../utils.js";
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
 
-import ProductManager from "./product.manager.js";
-const productManager = new ProductManager(`${__dirname}/data/products.json`);
+import ProductManager from "./products.managers.js";
+const productManager = new ProductManager(`${__dirname}/dao/filesystem/data/products.json`);
 
 export default class CartManager {
   constructor(path) {

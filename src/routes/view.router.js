@@ -2,8 +2,8 @@ import { Router } from "express";
 const router = Router();
 
 import { __dirname } from "../utils.js"
-import ProductManager from "../manager/product.manager.js";
-const productManager = new ProductManager(`${__dirname}/data/products.json`)
+import ProductManager from "../dao/filesystem/managers/products.managers.js";
+const productManager = new ProductManager(`${__dirname}/dao/filesystem/data/products.json`)
 
 router.get("/", async (req, res) => {
     try {
@@ -17,5 +17,9 @@ router.get("/", async (req, res) => {
 router.get("/realtimeproducts", (req, res) => {
     res.render("realtimeproducts");
 })
+
+router.get("/messages", (req, res) => {
+    res.render("messages")
+});
 
 export default router;

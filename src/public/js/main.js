@@ -10,14 +10,16 @@ const renderProductos = (productos) => {
     productos.forEach(item => {
         const card = document.createElement("div");
         card.innerHTML = `
+                        <div class="card-body2">    
+                            <p> <strong>${item.title}</strong></p><br>
                             <p> <strong>ID:</strong> ${item.id} </p>
-                            <p> <strong>Título:</strong>  ${item.title} </p>
                             <p> <strong>Descripción:</strong>  ${item.description} </p>
                             <p> <strong>Categoría:</strong>  ${item.category} </p>
                             <p> <strong>Código:</strong>  ${item.code} </p>
                             <p> <strong>Stock:</strong>  ${item.stock} </p>
-                            <p> <strong>Precio:</strong> $${item.price} </p>
+                            <p> <strong>Precio:</strong> $${item.price} </p><br>
                             <button> Eliminar producto </button>
+                        </div>    
                         `;
         contenedorProductos.appendChild(card);
         card.querySelector("button").addEventListener("click", () => {
